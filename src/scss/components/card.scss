@@ -37,6 +37,7 @@
         backdrop-filter: blur(40px);
         /* Note: backdrop-filter has minimal browser support */
         border-radius: 26px;
+        position: relative;
     }
 
     &--proposal:before {
