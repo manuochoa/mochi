@@ -1,0 +1,22 @@
+/*-------- Badge --------*/
+
+.badge {
+    padding: 8px 16px;
+    
+    font-family: $font-sb;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 6px;
+
+    &--common {
+        background-color: $black;
+    }
+
+    &--uncommon {
+        background-color: $green;
+    }
+
+    &--rare {
+        background-color: $blue;
+    }
+}

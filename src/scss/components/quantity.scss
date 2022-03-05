@@ -1,0 +1,84 @@
+/*-------- Quantity --------*/
+
+.quantity {
+    display: flex;
+    align-items: center;
+
+    font-size: 20px;
+
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 20px;
+        height: 20px;
+
+        color: $black;
+        position: relative;
+    }
+
+    &__button--1:before, &__button--2:before, &__button--2:after {
+        content: "";
+        background-color: currentColor;
+        position: absolute;
+        border-radius: 1px;
+    }
+
+    &__button--1:before {
+        width: 12px;
+        height: 2px;
+    }
+
+    &__button--2:before, &__button--2:after {
+        width: 2px;
+        height: 12px;
+    }
+
+    &__button--2:before {
+        transform: rotateZ(90deg);
+    }
+
+    &__value {
+        width: 40px;
+
+        background-color: transparent;
+        border: none;
+
+        font-size: inherit;
+        font-family: $font-b;
+        text-align: center;
+        color: $black;
+    }
+}
+
+.quantity {
+
+    &--product {
+        font-size: inherit;
+    }
+}
+
+@media (max-width: 479px) {
+
+    .quantity {
+        font-size: 16px;
+
+        &__button {
+            width: 18px;
+            height: 18px;
+        }
+
+        &__button--1:before {
+            width: 10px;
+        }
+
+        &__button--2:before, &__button--2:after {
+            height: 10px;
+        }
+
+        &__value {
+            width: 30px;
+        }
+    }
+}

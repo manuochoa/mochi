@@ -1,0 +1,62 @@
+/*-------- Button --------*/
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 64px;
+    padding: 0 20px;
+
+    background-color: $orange;
+    border: 2px solid #050402;
+    border-radius: 100px;
+
+    font-family: $font-b;
+    font-size: 16px;
+    color: $black;
+    text-transform: uppercase;
+
+    transition: color 0.2s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+
+    &:hover {
+        color: #ffffff;
+    }
+}
+
+.button {
+
+    &--header {
+        height: 56px;
+    }
+}
+
+.button {
+
+    &--beige {
+        background-color: $beige;
+    }
+}
+
+@media (max-width: 1219px) {
+
+    .button {
+
+        &--header {
+            height: 50px;
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 619px) {
+
+    .button {
+
+        &--header {
+            height: 40px;
+            padding: 0 15px;
+            font-size: 12px;
+        }
+    }
+}

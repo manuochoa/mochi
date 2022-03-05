@@ -1,0 +1,47 @@
+/*-------- Social --------*/
+
+.social {
+    display: flex;
+
+    &__item:not(:first-child) {
+        margin-left: 25px;
+    }
+
+    &__link {
+        display: block;
+    }
+
+    &__icon {
+        display: block;
+        width: 22px;
+        height: 22px;
+        color: $black;
+
+        transition: color 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    &__icon:hover {
+        color: $blue;
+    }
+}
+
+.social {
+
+    &--footer &__icon {
+        color: $beige;
+    }
+
+    &--footer &__icon:hover {
+        color: $yellow;
+    }
+}
+
+@media (max-width: 1219px) {
+
+    .social {
+
+        &__item:not(:first-child) {
+            margin-left: 20px;
+        }
+    }
+}

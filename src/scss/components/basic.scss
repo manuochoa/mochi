@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+
+    font-family: $font-r;
+    font-size: 18px;
+    color: $black;
+
+    background-color: $beige;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 400;
+}
+
+button {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+a {
+    text-decoration: none;
+    outline: 0;
+}
+
+input {
+    outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+
+.logo {
+    transition: filter 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+
+    &:hover {
+        filter: brightness(120%);
+    }
+
+    &__icon {
+        display: block;
+        width: 100%;
+    }
+}
+
+.section {
+
+    &--orange {
+        padding-top: 48px;
+        padding-bottom: 99px;
+        background-color: $orange;
+    }
+}
+
+.scrollwrapper {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    padding-right: 6px;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+        background-color: #EBE0BF;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $black;
+        border-radius: 4px;
+    }
+}
+
+.price {
+    padding: 6px 10px;
+
+    font-family: $font-b;
+    font-size: 18px;
+    color: $red;
+
+    border: 2px solid $red;
+    border-radius: 6px;
+}
+
+.close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    position: relative;
+
+    color: $black;
+
+    transition: color 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &:before, &:after {
+        content: "";
+        width: 60%;
+        height: 1px;
+        background-color: currentColor;
+        position: absolute;
+    }
+
+    &:before {
+        transform: rotateZ(45deg);
+    }
+
+    &:after {
+        transform: rotateZ(-45deg);
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+
+    .scrollwrapper {
+        padding-right: 0 !important;
+
+        &::-webkit-scrollbar {
+            width: 0px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+
+    body {
+        font-size: 16px;
+    }
+
+    .section {
+
+        &--orange {
+            padding-top: 30px;
+            padding-bottom: 60px;
+        }
+    }
+}
+
+@media (max-width: 479px) {
+
+    .container {
+        padding: 0 12px;
+    }
+}

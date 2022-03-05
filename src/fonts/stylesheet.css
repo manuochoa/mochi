@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'AvertaCY-Bold';
+    src: url('subset-AvertaCY-Bold.woff2') format('woff2'),
+        url('subset-AvertaCY-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AvertaCY-Regular';
+    src: url('subset-AvertaCY-Regular.woff2') format('woff2'),
+        url('subset-AvertaCY-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP-Pangram-Sans-Rounded-Regular';
+    src: url('subset-PPPangramSansRounded-Regular.woff2') format('woff2'),
+        url('subset-PPPangramSansRounded-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Spongy-Solid';
+    src: url('subset-Spongy-Solid.woff2') format('woff2'),
+        url('subset-Spongy-Solid.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Spongy-Solid';
+    src: url('subset-Spongy-Solid.woff2') format('woff2'),
+        url('subset-Spongy-Solid.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PP-Pangram-Sans-Rounded-Bold';
+    src: url('subset-PPPangramSansRounded-Bold.woff2') format('woff2'),
+        url('subset-PPPangramSansRounded-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AvertaCY-Semibold';
+    src: url('subset-AvertaCY-Semibold.woff2') format('woff2'),
+        url('subset-AvertaCY-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
