@@ -1,0 +1,48 @@
+/*-------- Panel --------*/
+
+.panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    padding: 32px 32px 34px 32px;
+    margin-top: 20px;
+    
+    background-color: #fff;
+    border-radius: 32px;
+
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 34px;
+    }
+
+    &__item {
+        width: calc(33% - 13px);
+        padding: 34px 36px;
+        background: #f5f2f2;
+        border-radius: 20px;
+    }
+
+    &__title {
+        font-size: 16px;
+        opacity: 0.7;
+    }
+
+    &__value {
+        margin-top: 8px;
+        font-family: $font-sb;
+        font-size: 22px;
+    }
+
+    &__button {
+        width: 50%;
+        max-width: 280px;
+    }
+
+    &__button:last-child {
+        margin-left: 24px;
+    }
+}

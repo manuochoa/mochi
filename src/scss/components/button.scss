@@ -5,58 +5,52 @@
     align-items: center;
     justify-content: center;
 
-    height: 64px;
+    height: 56px;
     padding: 0 20px;
 
-    background-color: $orange;
-    border: 2px solid #050402;
-    border-radius: 100px;
+    border-radius: 8px;
+    border: 2px solid transparent;
 
     font-family: $font-b;
-    font-size: 16px;
-    color: $black;
-    text-transform: uppercase;
+    font-size: 14px;
+    color: #fff;
 
-    transition: color 0.2s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+    background-color: $blue;
+
+    transition: color 0.2s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.2s cubic-bezier(0.19, 1, 0.22, 1), border-color 0.2s cubic-bezier(0.19, 1, 0.22, 1);
 
     &:hover {
-        color: #ffffff;
+        background-color: transparent;
+        border-color: $blue;
+        color: $black;
     }
 }
 
 .button {
 
     &--header {
-        height: 56px;
+        padding: 0 46px;
+
+        background-color: $beige;
+
+        color: $black;
+        text-transform: uppercase;
+    }
+
+    &--header:hover {
+        border-color: $beige;
     }
 }
 
 .button {
 
-    &--beige {
-        background-color: $beige;
+    &--transparent {
+        background-color: transparent;
+        color: $black;
     }
-}
 
-@media (max-width: 1219px) {
-
-    .button {
-
-        &--header {
-            height: 50px;
-            font-size: 14px;
-        }
-    }
-}
-
-@media (max-width: 619px) {
-
-    .button {
-
-        &--header {
-            height: 40px;
-            padding: 0 15px;
-            font-size: 12px;
-        }
+    &--transparent:hover {
+        border-color: $blue;
+        color: $blue;
     }
 }

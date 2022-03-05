@@ -2,18 +2,12 @@
 $font-r: "AvertaCY-Regular";
 $font-sb: "AvertaCY-Semibold";
 $font-b: "AvertaCY-Bold";
-$font-rounded: "PP-Pangram-Sans-Rounded-Regular";
-$font-rounded-bold: "PP-Pangram-Sans-Rounded-Bold";
-$font-spongy: "Spongy-Solid";
 
 /*-------- Colors --------*/
-$orange: #F2A848;
-$blue: #4E97B9;
-$red: #CB352E;
-$black: #050402;
+$blue: #8CCBD1;
+$beige: #FFE8DB;
+$black: #423F3C;
 $beige: #F9EDCA;
-$yellow: #EBCB62;
-$green: #3CA839;
 
 @import './reset.scss';
 @import './components/components.scss';

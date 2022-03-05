@@ -6,10 +6,13 @@ body {
     min-width: 320px;
 
     font-family: $font-r;
-    font-size: 18px;
+    font-size: 14px;
     color: $black;
 
-    background-color: $beige;
+    background-image: url(../../images/svg/background.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1,
@@ -76,15 +79,6 @@ input[type="number"] {
     }
 }
 
-.section {
-
-    &--orange {
-        padding-top: 48px;
-        padding-bottom: 99px;
-        background-color: $orange;
-    }
-}
-
 .scrollwrapper {
     overflow-y: auto;
     overflow-x: hidden;
@@ -101,17 +95,6 @@ input[type="number"] {
         background-color: $black;
         border-radius: 4px;
     }
-}
-
-.price {
-    padding: 6px 10px;
-
-    font-family: $font-b;
-    font-size: 18px;
-    color: $red;
-
-    border: 2px solid $red;
-    border-radius: 6px;
 }
 
 .close {
@@ -152,21 +135,6 @@ input[type="number"] {
 
         &::-webkit-scrollbar {
             width: 0px;
-        }
-    }
-}
-
-@media (max-width: 767px) {
-
-    body {
-        font-size: 16px;
-    }
-
-    .section {
-
-        &--orange {
-            padding-top: 30px;
-            padding-bottom: 60px;
         }
     }
 }
