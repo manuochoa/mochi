@@ -50,7 +50,7 @@ export default function ProposalItem({ item }) {
                 </li>
             </ul>
             <div className="card__footer">
-                <button className="card__more" onClick={toggleContent}>Staking Details</button>
+                <button className={"card__more" + (detailsHeight > 0 ? " active" : "")} onClick={toggleContent}>Staking Details</button>
                 <button className="button card__button">Claim Rewards</button>
             </div>
             <div className="card__details" style={{ height: detailsHeight + "px" }}>

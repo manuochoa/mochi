@@ -33,10 +33,22 @@
         padding: 0 20px;
         background: #F4F5F9;
         border-radius: 0px 8px 8px 0px;
+        color: $black;
+        transition: background-color 0.2s cubic-bezier(0.19, 1, 0.22, 1), color 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    &__button:hover {
+        background-color: $blue;
+        color: #fff;
     }
 
     &__max {
         color: $blue;
         text-transform: uppercase;
+        transition: color 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    &__max:hover {
+        color: rgb(221, 67, 67);
     }
 }

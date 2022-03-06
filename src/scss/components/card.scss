@@ -111,6 +111,11 @@
         transform: rotateZ(45deg);
     }
 
+    &--proposal &__more.active:after {
+        transform: rotateZ(-135deg);
+        margin-bottom: 0;
+    }
+
     &--proposal &__details {
         overflow: hidden;
         transition: height 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
