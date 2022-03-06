@@ -53,3 +53,23 @@
         color: rgb(221, 67, 67);
     }
 }
+
+@media (max-width: 989px) {
+
+    .input-wrapper {
+
+        &__button {
+            width: 30%;
+        }
+    }
+}
+
+@media (max-width: 359px) {
+
+    .input-wrapper {
+
+        &__button {
+            padding: 0 12px;
+        }
+    }
+}
