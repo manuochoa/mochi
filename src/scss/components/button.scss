@@ -54,3 +54,24 @@
         color: $blue;
     }
 }
+
+@media (max-width: 619px) {
+
+    .button {
+
+        &--header {
+            height: 45px;
+            padding: 0 20px;
+        }
+    }
+}
+
+@media (max-width: 479px) {
+
+    .button {
+
+        &--header {
+            font-size: 12px;
+        }
+    }
+}

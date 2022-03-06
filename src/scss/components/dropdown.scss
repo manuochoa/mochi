@@ -1,0 +1,143 @@
+/*-------- Dropdown --------*/
+
+.dropdown {
+    width: 100%;
+
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    z-index: 10;
+
+    &.opened {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.dropdown {
+
+    &--header {
+        width: max-content;
+        min-width: 330px;
+        padding-top: 8px;
+        top: 100%;
+    }
+
+    &--header &__wrapper {
+        padding: 14px 16px 20px 16px;
+        background: #fff;
+        box-shadow: 0px 16px 26px rgba(30, 33, 85, 0.12);
+        border-radius: 16px;
+    }
+
+    &--header &__account {
+        display: flex;
+        align-items: center;
+        margin-top: 14px;
+    }
+
+    &--header &__title {
+        font-family: $font-b;
+        font-size: 24px;
+        letter-spacing: 1.9px;
+    }
+
+    &--header &__button {
+        display: flex;
+        align-items: center;
+
+        height: 32px;
+        padding: 0 14px;
+
+        font-size: 14px;
+        color: $black;
+
+        border: 1px solid rgba(13, 13, 61, 0.1);
+        border-radius: 6px;
+
+        transition: color 0.2s ease-out, border-color 0.2s ease-out;
+    }
+
+    &--header &__button:hover {
+        color: rgb(179, 6, 6);
+        border-color: rgb(179, 6, 6);
+    }
+
+    &--header &__account-icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        width: 40px;
+        height: 40px;
+
+        background: $blue;
+        border-radius: 50%;
+    }
+
+    &--header &__account-icon {
+        width: 50%;
+    }
+
+    &--header &__account-row {
+        display: flex;
+        align-items: center;
+    }
+
+    &--header &__account-action {
+        width: 16px;
+        height: 16px;
+        margin-left: 6px;
+    }
+
+    &--header &__account-action:not(:last-child) {
+        margin-left: auto;
+    }
+
+    &--header &__account-action-icon {
+        width: 100%;
+        height: auto;
+        color: $black;
+        transition: color 0.2s ease-out;
+    }
+
+    &--header &__account-action-icon:hover {
+        color: $blue;
+    }
+
+    &--header &__account-column {
+        width: 100%;
+        margin-left: 12px;
+    }
+
+    &--header &__account-row--wallet {
+        margin-top: 5px;
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 479px) {
+
+    .dropdown {
+
+        &--header {
+            min-width: auto;
+        }
+
+        &--header &__account-action:not(:last-child) {
+            margin-left: 20px;
+        }
+    }
+}

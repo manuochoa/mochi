@@ -155,3 +155,63 @@
         }
     }
 }
+
+@media (max-width: 619px) {
+
+    .cards-list {
+
+        &--proposal {
+            margin-top: 78px;
+        }
+    }
+}
+
+@media (max-width: 479px) {
+
+    .cards-list {
+
+        &--proposal {
+            padding-bottom: 50px;
+        }
+    }
+
+    .card {
+
+        &--proposal &__list {
+            padding: 66px 12px 24px 12px;
+        }
+
+        &--proposal:before {
+            width: 84px;
+            height: 84px;
+            top: -42px;
+        }
+
+        &--proposal &__item {
+            font-size: 12px;
+        }
+
+        &--proposal &__button {
+            font-size: 12px;
+            border-radius: 6px;
+        }
+
+        &--proposal &__footer {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        &--proposal &__details-list {
+            padding: 4px 12px 17px 12px;
+        }
+
+        &--proposal &__label {
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+
+        &--proposal &__details-item:not(:first-child) {
+            margin-top: 16px;
+        }
+    }
+}

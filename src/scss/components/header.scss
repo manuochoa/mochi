@@ -8,4 +8,94 @@
         justify-content: space-between;
         height: 120px;
     }
+
+    &__account {
+        margin-left: auto;
+        position: relative;
+    }
+
+    &__account-button {
+        display: flex;
+        align-items: center;
+
+        height: 56px;
+        padding-left: 22px;
+        padding-right: 23px;
+
+        font-size: 14px;
+        color: $black;
+
+        background-color: #fff;
+        border-radius: 100px;
+
+        transition: border-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    &__account:hover &__account-button {
+        border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    &__account-button-icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 28px;
+        height: 28px;
+        margin-right: 12px;
+
+        background: $blue;
+        border-radius: 50%;
+    }
+
+    &__account-button-icon {
+        width: 50%;
+    }
+
+    &__account-button-arrow {
+        margin-left: 6px;
+        color: $black;
+    }
+
+    &__account:hover .dropdown--header {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@media (max-width: 619px) {
+
+    .header {
+        
+        &__wrapper {
+            height: 90px;
+        }
+
+        &__logo {
+            width: 148px;
+        }
+    }
+}
+
+@media (max-width: 479px) {
+
+    .header {
+
+        &__account-button {
+            height: 45px;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 12px;
+        }
+    }
+}
+
+@media (max-width: 359px) {
+
+    .header {
+
+        &__logo {
+            width: 110px;
+        }
+    }
 }
