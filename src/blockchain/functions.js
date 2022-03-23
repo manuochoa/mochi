@@ -2,7 +2,8 @@ import { ethers, providers } from "ethers";
 import { abi } from "./stakingAbi";
 
 let tokenAddress = "0x99905eCb88ad09b1Cc7499222ac3E0157Ad43F1e";
-let stakingAddress = "0xbd42A6912cd6eBfa07446bB96b4914096aEf1EE9";
+let stakingAddress = "0x91De24a45335d6E435cFE9c1E9DacC033765E090"; //staking 10 min
+// let stakingAddress = "0xbd42A6912cd6eBfa07446bB96b4914096aEf1EE9";
 
 let tokenAbi = [
   "function balanceOf(address owner) external view returns (uint256)",

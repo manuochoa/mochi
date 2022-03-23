@@ -38,7 +38,9 @@ export default function ProposalItem({
       }
     );
 
-    if (days === 0 && hours === "00") {
+    console.log(hours, minutes, minutes === "00");
+
+    if (days === 0 && hours === "00" && minutes === "00") {
       return `-`;
     } else if (days < 0 && Number(hours) < 0 && Number(minutes) < 0) {
       return `Ready`;
@@ -68,6 +70,10 @@ export default function ProposalItem({
 
   const handleStake = async () => {
     setIsLoading(true);
+    if (Number(state.balance) <= 0) {
+      setIsLoading(false);
+      return window.alert("Insert a valid amount");
+    }
     let receipt = await stake(
       state.balance,
       item.id,
@@ -84,6 +90,15 @@ export default function ProposalItem({
 
   const handleWithdraw = async () => {
     setIsLoading(true);
+    if (Number(state.staked) <= 0) {
+      setIsLoading(false);
+      return window.alert("Insert a valid amount");
+    }
+    if (Number(item.left) > 0) {
+      window.alert(
+        "Withdraw not ready yet, you will NOT receive rewards if you proceed"
+      );
+    }
     let receipt = await withdraw(
       state.staked,
       item.id,

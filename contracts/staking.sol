@@ -109,7 +109,8 @@ contract mochiStaking is Ownable, Pausable {
         level0Balance[_msgSender] = _user ({
             balance: _amount,
             timeStarted: block.timestamp,
-            timeFinish: block.timestamp + 7 days
+            // timeFinish: block.timestamp + 7 days
+            timeFinish: block.timestamp + 600
         });         
 
         emit deposit (_msgSender, 0, _amount, block.timestamp, block.timestamp + 7 days);
@@ -133,7 +134,8 @@ contract mochiStaking is Ownable, Pausable {
         level1Balance[_msgSender] = _user ({
            balance: _amount,
            timeStarted: block.timestamp,
-           timeFinish: block.timestamp + 30 days
+        //    timeFinish: block.timestamp + 30 days
+           timeFinish: block.timestamp + 800
         });
     
         emit deposit (_msgSender, 1, _amount, block.timestamp, block.timestamp + 30 days);
@@ -158,7 +160,8 @@ contract mochiStaking is Ownable, Pausable {
         vipBalance[_msgSender] = _user ({
            balance: _amount,
            timeStarted: block.timestamp,
-           timeFinish: block.timestamp + 90 days
+        //    timeFinish: block.timestamp + 90 days
+           timeFinish: block.timestamp + 1200
         });       
 
         emit deposit (_msgSender, 2, _amount, block.timestamp, block.timestamp + 90 days);
