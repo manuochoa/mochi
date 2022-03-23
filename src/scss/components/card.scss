@@ -1,222 +1,222 @@
 /*-------- Card --------*/
 
 .cards-list {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 
-    &__item {
-        width: calc(33% - 20px);
-    }
+  &__item {
+    width: calc(33% - 20px);
+  }
 }
 
 .cards-list {
+  &--proposal {
+    margin-top: 104px;
+    padding-bottom: 64px;
+  }
 
-    &--proposal {
-        margin-top: 104px;
-        padding-bottom: 64px;
-    }
+  &--proposal &__item:nth-child(1n) .card--proposal:before {
+    background-image: url(../../images/proposals/img1.png);
+  }
 
-    &--proposal &__item:nth-child(1n) .card--proposal:before {
-        background-image: url(../../images/proposals/img1.png);
-    }
+  &--proposal &__item:nth-child(2n) .card--proposal:before {
+    background-image: url(../../images/proposals/img2.png);
+  }
 
-    &--proposal &__item:nth-child(2n) .card--proposal:before {
-        background-image: url(../../images/proposals/img2.png);
-    }
-
-    &--proposal &__item:nth-child(3n) .card--proposal:before {
-        background-image: url(../../images/proposals/img3.png);
-    }
+  &--proposal &__item:nth-child(3n) .card--proposal:before {
+    background-image: url(../../images/proposals/img3.png);
+  }
 }
 
 .card {
+  &--proposal {
+    background-color: #fff;
+    backdrop-filter: blur(40px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 26px;
+    position: relative;
+  }
 
-    &--proposal {
-        background-color: #fff;
-        backdrop-filter: blur(40px);
-        /* Note: backdrop-filter has minimal browser support */
-        border-radius: 26px;
-        position: relative;
-    }
+  &--proposal:before {
+    content: "";
+    width: 112px;
+    height: 112px;
 
-    &--proposal:before {
-        content: "";
-        width: 112px;
-        height: 112px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -56px;
 
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        top: -56px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+  &--proposal &__list {
+    padding: 88px 20px 32px 20px;
+  }
 
-    &--proposal &__list {
-        padding: 88px 20px 32px 20px;
-    }
+  &--proposal &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    padding: 0 12px;
+  }
 
-    &--proposal &__item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 40px;
-        padding: 0 12px;
-    }
+  &--proposal &__item:nth-child(odd) {
+    background: #f5f2f2;
+    border-radius: 6px;
+  }
 
-    &--proposal &__item:nth-child(odd) {
-        background: #F5F2F2;
-        border-radius: 6px;
-    }
+  &--proposal &__item span:nth-child(1) {
+    opacity: 0.7;
+  }
 
-    &--proposal &__item span:nth-child(1) {
-        opacity: 0.7;
-    }   
+  &--proposal &__item span:nth-child(2) {
+    font-family: $font-sb;
+  }
 
-    &--proposal &__item span:nth-child(2) {
-        font-family: $font-sb;
-    }
+  &--proposal &__footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 
-    &--proposal &__footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    padding: 16px 20px 16px 20px;
+    border-top: 1px solid #f4f5f9;
+  }
 
-        padding: 16px 20px 16px 20px;
-        border-top: 1px solid #F4F5F9;
-    }
+  &--proposal &___footerButton {
+    justify-content: center;
+  }
 
-    &--proposal &__more {
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-        color: $black;
-    }
+  &--proposal &__more {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: $black;
+  }
 
-    &--proposal &__more:after {
-        content: "";
-        display: block;
+  &--proposal &__more:after {
+    content: "";
+    display: block;
 
-        width: 4px;
-        height: 4px;
-        margin-bottom: 1px;
-        margin-left: 10px;
+    width: 4px;
+    height: 4px;
+    margin-bottom: 1px;
+    margin-left: 10px;
 
-        border: 1px solid $black;
-        border-left: none;
-        border-top: none;
-        transform: rotateZ(45deg);
-    }
+    border: 1px solid $black;
+    border-left: none;
+    border-top: none;
+    transform: rotateZ(45deg);
+  }
 
-    &--proposal &__more.active:after {
-        transform: rotateZ(-135deg);
-        margin-bottom: 0;
-    }
+  &--proposal &__more.active:after {
+    transform: rotateZ(-135deg);
+    margin-bottom: 0;
+  }
 
-    &--proposal &__details {
-        overflow: hidden;
-        transition: height 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
+  &--proposal &__details {
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
 
-    &--proposal &__details-list {
-        padding: 8px 20px 24px 20px;
-    }
+  &--proposal &__details-list {
+    padding: 8px 20px 24px 20px;
+  }
 
-    &--proposal &__details-item:not(:first-child) {
-        margin-top: 20px;
-    }
+  &--proposal &__details-item:not(:first-child) {
+    margin-top: 20px;
+  }
 
-    &--proposal &__label {
-        display: block;
-        margin-bottom: 12px;
-        color: rgba(66, 63, 60, 0.7);
-    }
+  &--proposal &__label {
+    display: block;
+    margin-bottom: 12px;
+    color: rgba(66, 63, 60, 0.7);
+  }
 
-    &--proposal &__button {
-        height: 40px;
-        padding: 0 15px;
-    }
+  &--proposal &__button {
+    height: 40px;
+    padding: 0 15px;
+  }
+
+  &--proposal &__button:disabled {
+    background-color: #8ccbd179;
+  }
 }
 
 @media (max-width: 989px) {
-
-    .cards-list {
-
-        &--proposal {
-            align-items: center;
-            flex-direction: column;
-        }
-
-        &--proposal &__item {
-            width: 100%;
-            max-width: 360px;
-        }
-
-        &--proposal &__item:not(:first-child) {
-            margin-top: 62px;
-        }
+  .cards-list {
+    &--proposal {
+      align-items: center;
+      flex-direction: column;
     }
+
+    &--proposal &__item {
+      width: 100%;
+      max-width: 360px;
+    }
+
+    &--proposal &__item:not(:first-child) {
+      margin-top: 62px;
+    }
+  }
 }
 
 @media (max-width: 619px) {
-
-    .cards-list {
-
-        &--proposal {
-            margin-top: 78px;
-        }
+  .cards-list {
+    &--proposal {
+      margin-top: 78px;
     }
+  }
 }
 
 @media (max-width: 479px) {
+  .cards-list {
+    &--proposal {
+      padding-bottom: 50px;
+    }
+  }
 
-    .cards-list {
-
-        &--proposal {
-            padding-bottom: 50px;
-        }
+  .card {
+    &--proposal &__list {
+      padding: 66px 12px 24px 12px;
     }
 
-    .card {
-
-        &--proposal &__list {
-            padding: 66px 12px 24px 12px;
-        }
-
-        &--proposal:before {
-            width: 84px;
-            height: 84px;
-            top: -42px;
-        }
-
-        &--proposal &__item {
-            font-size: 12px;
-        }
-
-        &--proposal &__button {
-            font-size: 12px;
-            border-radius: 6px;
-        }
-
-        &--proposal &__footer {
-            padding-left: 12px;
-            padding-right: 12px;
-        }
-
-        &--proposal &__details-list {
-            padding: 4px 12px 17px 12px;
-        }
-
-        &--proposal &__label {
-            margin-bottom: 8px;
-            font-size: 12px;
-        }
-
-        &--proposal &__details-item:not(:first-child) {
-            margin-top: 16px;
-        }
+    &--proposal:before {
+      width: 84px;
+      height: 84px;
+      top: -42px;
     }
+
+    &--proposal &__item {
+      font-size: 12px;
+    }
+
+    &--proposal &__button {
+      font-size: 12px;
+      border-radius: 6px;
+    }
+
+    &--proposal &__footer {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    &--proposal &__details-list {
+      padding: 4px 12px 17px 12px;
+    }
+
+    &--proposal &__label {
+      margin-bottom: 8px;
+      font-size: 12px;
+    }
+
+    &--proposal &__details-item:not(:first-child) {
+      margin-top: 16px;
+    }
+  }
 }
