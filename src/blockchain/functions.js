@@ -29,11 +29,11 @@ export const stake = async (_amount, _class, walletType, walletProvider) => {
 
     let tx;
     if (_class === 0) {
-      tx = await instance.enterLevel0(amount);
+      tx = await instance.enterLevel0(amount, { gasLimit: 200000 });
     } else if (_class === 1) {
-      tx = await instance.enterLevel1(amount);
+      tx = await instance.enterLevel1(amount, { gasLimit: 200000 });
     } else if (_class === 2) {
-      tx = await instance.enterVip(amount);
+      tx = await instance.enterVip(amount, { gasLimit: 200000 });
     }
     let receipt = await tx.wait();
 
@@ -53,11 +53,11 @@ export const withdraw = async (_amount, _class, walletType, walletProvider) => {
 
     let tx;
     if (_class === 0) {
-      tx = await instance.withdrawLevel0(amount);
+      tx = await instance.withdrawLevel0(amount, { gasLimit: 200000 });
     } else if (_class === 1) {
-      tx = await instance.withdrawLevel1(amount);
+      tx = await instance.withdrawLevel1(amount, { gasLimit: 200000 });
     } else if (_class === 2) {
-      tx = await instance.withdrawVip(amount);
+      tx = await instance.withdrawVip(amount, { gasLimit: 200000 });
     }
 
     let receipt = await tx.wait();
@@ -77,7 +77,8 @@ export const approveStake = async (walletType, walletProvider) => {
 
     let tx = await instance.approve(
       stakingAddress,
-      "115792089237316195423570985008687907853269984665640564039457584007913129639935"
+      "115792089237316195423570985008687907853269984665640564039457584007913129639935",
+      { gasLimit: 100000 }
     );
 
     let receipt = await tx.wait();
