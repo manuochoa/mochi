@@ -27,20 +27,20 @@ export default function Panel({ grandTotal, userInfo }) {
       {mobileScreen ? (
         <ul className="panel__list">
           <li className="panel__item">
-            <h6 className="panel__title">Balance</h6>
+            <h6 className="panel__title">Balance</h6>M
             <h1 className="panel__value">
               {Number(userInfo.balance / 10 ** 18).toString()}{" "}
               {!smallScreen && "$MOCHI"}
             </h1>
           </li>
           <li className="panel__item">
-            <h6 className="panel__title">User Earnings</h6>
+            <h6 className="panel__title">My Earnings</h6>
             <h1 className="panel__value">
               {totalEarned.toFixed(2)} {!smallScreen && "$MOCHI"}
             </h1>
           </li>
           <li className="panel__item">
-            <h6 className="panel__title">User Staked</h6>
+            <h6 className="panel__title">My Staked Tokens</h6>
             <h1 className="panel__value">
               {totalStaked.toFixed(2)} {!smallScreen && "$MOCHI"}
             </h1>
@@ -62,11 +62,11 @@ export default function Panel({ grandTotal, userInfo }) {
               </h1>
             </li>
             <li className="panel__item">
-              <h6 className="panel__title">User Earnings</h6>
+              <h6 className="panel__title">My Earnings</h6>
               <h1 className="panel__value">{totalEarned.toFixed(2)} $MOCHI</h1>
             </li>
             <li className="panel__item">
-              <h6 className="panel__title">User Staked</h6>
+              <h6 className="panel__title">My Staked Tokens</h6>
               <h1 className="panel__value">{totalStaked.toFixed(2)} $MOCHI</h1>
             </li>
             <li className="panel__item">
