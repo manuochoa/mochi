@@ -53,11 +53,11 @@ export const withdraw = async (_amount, _class, walletType, walletProvider) => {
 
     let tx;
     if (_class === 0) {
-      tx = await instance.withdrawLevel0(amount, { gasLimit: 200000 });
+      tx = await instance.withdrawLevel0(amount, { gasLimit: 300000 });
     } else if (_class === 1) {
-      tx = await instance.withdrawLevel1(amount, { gasLimit: 200000 });
+      tx = await instance.withdrawLevel1(amount, { gasLimit: 300000 });
     } else if (_class === 2) {
-      tx = await instance.withdrawVip(amount, { gasLimit: 200000 });
+      tx = await instance.withdrawVip(amount, { gasLimit: 300000 });
     }
 
     let receipt = await tx.wait();

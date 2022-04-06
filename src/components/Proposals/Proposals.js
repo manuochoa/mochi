@@ -1,6 +1,7 @@
 // import { proposalsArray } from "../../services/constants";
 import { useState, useEffect } from "react";
 import ProposalItem from "./ProposalItem";
+import { ethers } from "ethers";
 
 const initialArray = [
   {
@@ -52,7 +53,7 @@ export default function Proposals({
         timeLeft = el.timeFinish * 1000 - Date.now();
       }
       temp[index].left = timeLeft;
-      temp[index].staked = Number(el.balance / 10 ** 18).toString();
+      temp[index].staked = ethers.utils.formatEther(el.balance, 18).toString();
       temp[index].earnings = Number(el.earnings / 10 ** 18).toString();
       temp[index].hola = Number(el.earnings / 10 ** 18).toString();
     });
