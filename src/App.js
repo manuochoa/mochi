@@ -17,6 +17,7 @@ export default function App() {
   const [userAddress, setUserAddress] = useState("");
   const [walletType, setWalletType] = useState("");
   const [walletProvider, setWalletProvider] = useState();
+  const [totalStaked, setTotalStaked] = useState("");
   const [userInfo, setUserInfo] = useState({
     balance: "",
     isAllowed: false,
@@ -119,6 +120,13 @@ export default function App() {
     }
   };
 
+  const getTotalStaked = async () => {
+    let result = await tokenBalance(
+      "0xBa9Cec669E12DeFA8741a3964F1EDaF30E8065b0"
+    );
+    setTotalStaked(result);
+  };
+
   useEffect(() => {
     getUserInfo();
   }, [userAddress]);
@@ -128,6 +136,7 @@ export default function App() {
     if (user) {
       connectMetamask();
     }
+    getTotalStaked();
   }, []);
 
   return (
@@ -140,6 +149,7 @@ export default function App() {
       <main className="main container">
         <Panel userInfo={userInfo} />
         <Proposals
+          getTotalStaked={getTotalStaked}
           userAddress={userAddress}
           setPopupVisible={setPopupVisible}
           walletType={walletType}

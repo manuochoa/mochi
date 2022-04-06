@@ -47,11 +47,17 @@ export default function Panel({ userInfo }) {
             <div className="panel__buttons">
               {/* <button className="button button--blue panel__button">
                 Claim Rewards
-              </button>
-              <button className="button button--transparent panel__button">
+                </button>
+                <button className="button button--transparent panel__button">
                 Unstake
               </button> */}
             </div>
+          </li>
+          <li className="panel__item">
+            <h6 className="panel__title">Total staked</h6>
+            <h1 className="panel__value">
+              {totalEarned.toFixed(2)} {!smallScreen && "$MOCHI"}
+            </h1>
           </li>
         </ul>
       ) : (
@@ -64,8 +70,12 @@ export default function Panel({ userInfo }) {
               </h1>
             </li>
             <li className="panel__item">
-              <h6 className="panel__title">Total Earnings</h6>
+              <h6 className="panel__title">User Earnings</h6>
               <h1 className="panel__value">{totalEarned.toFixed(2)} $MOCHI</h1>
+            </li>
+            <li className="panel__item">
+              <h6 className="panel__title">User Staked</h6>
+              <h1 className="panel__value">{totalStaked.toFixed(2)} $MOCHI</h1>
             </li>
             <li className="panel__item">
               <h6 className="panel__title">Total Staked</h6>

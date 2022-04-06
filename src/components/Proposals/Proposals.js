@@ -37,6 +37,7 @@ export default function Proposals({
   userInfo,
   userAddress,
   setPopupVisible,
+  getTotalStaked,
 }) {
   const [proposalsArray, setProposalsArray] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -76,6 +77,7 @@ export default function Proposals({
             return (
               <li className="cards-list__item" key={item.id}>
                 <ProposalItem
+                  getTotalStaked={getTotalStaked}
                   userAddress={userAddress}
                   setPopupVisible={setPopupVisible}
                   isLoading={isLoading}
@@ -94,6 +96,7 @@ export default function Proposals({
             return (
               <li className="cards-list__item" key={item.id}>
                 <ProposalItem
+                  getTotalStaked={getTotalStaked}
                   userAddress={userAddress}
                   setPopupVisible={setPopupVisible}
                   isLoading={isLoading}

@@ -13,6 +13,7 @@ export default function ProposalItem({
   setIsLoading,
   userAddress,
   setPopupVisible,
+  getTotalStaked,
 }) {
   const [state, setState] = useState({
     balance: "",
@@ -84,6 +85,7 @@ export default function ProposalItem({
     if (receipt) {
       console.log(receipt);
       getUserInfo();
+      getTotalStaked();
     }
     setIsLoading(false);
   };
@@ -109,6 +111,7 @@ export default function ProposalItem({
     if (receipt) {
       console.log(receipt);
       getUserInfo();
+      getTotalStaked();
     }
     setIsLoading(false);
   };
