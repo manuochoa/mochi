@@ -1,8 +1,8 @@
 import { ethers, providers } from "ethers";
 import { abi } from "./stakingAbi";
 
-let tokenAddress = "0x99905eCb88ad09b1Cc7499222ac3E0157Ad43F1e";
-let stakingAddress = "0x91De24a45335d6E435cFE9c1E9DacC033765E090"; //staking 10 min
+let tokenAddress = "0x8c773FF7b4F78d638A50e9351eD7d5f5284b4415";
+let stakingAddress = "0xBa9Cec669E12DeFA8741a3964F1EDaF30E8065b0"; //staking 10 min
 // let stakingAddress = "0xbd42A6912cd6eBfa07446bB96b4914096aEf1EE9";
 
 let tokenAbi = [
@@ -12,8 +12,8 @@ let tokenAbi = [
 ];
 
 let provider = new ethers.providers.JsonRpcProvider(
-  // "https://data-seed-prebsc-1-s1.binance.org:8545/"
-  "https://data-seed-prebsc-2-s2.binance.org:8545/"
+  "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
+  // "https://data-seed-prebsc-2-s2.binance.org:8545/"
 );
 
 let tokenInstance = new ethers.Contract(tokenAddress, tokenAbi, provider);

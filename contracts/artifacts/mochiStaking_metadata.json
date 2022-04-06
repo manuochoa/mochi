@@ -11,11 +11,6 @@
 						"internalType": "address",
 						"name": "_token",
 						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "_reserveWallet",
-						"type": "address"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -505,19 +500,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "reserveWallet",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -582,19 +564,6 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_reserveWallet",
-						"type": "address"
-					}
-				],
-				"name": "setReserveWallet",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "newOwner",
 						"type": "address"
 					}
@@ -602,6 +571,19 @@
 				"name": "transferOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "uniswapV2Router",
+				"outputs": [
+					{
+						"internalType": "contract IDexRouter",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -726,9 +708,6 @@
 				"setNewMaxMin(uint256,uint256,uint256,uint256,uint256,uint256)": {
 					"details": "Change max and min values for all categories.   "
 				},
-				"setReserveWallet(address)": {
-					"details": "Change Reserve Wallet.   "
-				},
 				"transferOwnership(address)": {
 					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
 				},
@@ -799,11 +778,11 @@
 			]
 		},
 		"staking.sol": {
-			"keccak256": "0x4b12921154c6f95db56a250b2c23b62924f55d8b0b485dba1929e9110accad8a",
+			"keccak256": "0xcb7f484397251bce8e1fd4b911ac44d5941169485d69d4a73172723b1d864777",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0254281e97439c3977ab6a2e19332703d266c6d3ea7ffb9397a67badcad47d18",
-				"dweb:/ipfs/QmRx2xUCbQ4mrpyqHruUsxx4jtvdmbVFqyy756fXFL1H6x"
+				"bzz-raw://2d4b20d74f731e981c7e9a12169a8f3c3784349f2b0f04d4e8a5ff5253d02019",
+				"dweb:/ipfs/QmRmMsbrosHCg7wJERG4HghTWAhb3CbJL8gexFQMmeHPmV"
 			]
 		}
 	},

@@ -51,18 +51,18 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
 		"mochiToken.sol": {
-			"keccak256": "0x0f4a33413b0d683b7b9c5998ce3e5a146f89686587eb01ef0f482ec241c84e03",
+			"keccak256": "0xae441799d47a9bc26370ca72074e7a1ba5c38801de96db36d4b0a392cf5c156e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://bf4faf904183cd42add4212964fbc8aefdb74e5ca17a5f7a29a29136cfb689b8",
-				"dweb:/ipfs/QmZeSk9C4AwLX2QCd3TyE3ZuPAFDCN1H5Kq5F3BuS73aWa"
+				"bzz-raw://5140fe8c58196922b062f58e5be47f98a07ed6bf58b9463ea92a7137913be1f2",
+				"dweb:/ipfs/QmUcGJNL5GJm1Yu9kPLrMjJT7mkWRReXQt2VB54nNMBPkE"
 			]
 		}
 	},

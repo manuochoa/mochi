@@ -387,8 +387,8 @@ contract MOCHI is ERC20, Ownable {
         
         address newOwner = msg.sender; // can leave alone if owner is deployer.
         
-        // IDexRouter _uniswapV2Router = IDexRouter(0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D);
-        IDexRouter _uniswapV2Router = IDexRouter(0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3);
+        IDexRouter _uniswapV2Router = IDexRouter(0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D); // Uniswap Router V2
+        // IDexRouter _uniswapV2Router = IDexRouter(0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3);
 
         _excludeFromMaxTransaction(address(_uniswapV2Router), true);
         uniswapV2Router = _uniswapV2Router;

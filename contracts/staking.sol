@@ -5,6 +5,35 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 
+interface IDexRouter {
+    function factory() external pure returns (address);
+    function WETH() external pure returns (address);
+    
+    function swapExactTokensForETHSupportingFeeOnTransferTokens(
+        uint amountIn,
+        uint amountOutMin,
+        address[] calldata path,
+        address to,
+        uint deadline
+    ) external;
+
+    function addLiquidityETH(
+        address token,
+        uint256 amountTokenDesired,
+        uint256 amountTokenMin,
+        uint256 amountETHMin,
+        address to,
+        uint256 deadline
+    )
+        external
+        payable
+        returns (
+            uint256 amountToken,
+            uint256 amountETH,
+            uint256 liquidity
+        );
+}
+
 
 contract mochiStaking is Ownable, Pausable {
     // Address of the token for the staking.
@@ -29,9 +58,7 @@ contract mochiStaking is Ownable, Pausable {
     uint256 public level1Max = 500000000 * 10**18;
     uint256 public levelVipMin = 200 * 10**18;
     uint256 public levelVipMax = 2500000000 * 10**18;
-    
-    // reserve wallet
-    address public reserveWallet;
+   
     
     // Mapping for user details of  each class.
     mapping (address => bool) public isLevel0;
@@ -41,14 +68,18 @@ contract mochiStaking is Ownable, Pausable {
     mapping (address => bool) public isVip;
     mapping (address => _user) public vipBalance;  
 
+    // Uniswap Router
+    IDexRouter public immutable uniswapV2Router;
+
     // Events.
     event deposit (address user, uint8 class, uint256 amount, uint256 timeStart, uint256 timeEnd);
     event withdraw (address user, uint8 class, bool onTime, uint256 amount, uint256 earnings);
  
-    // Set the token to be staked.
-    constructor(address _token , address _reserveWallet) {
+    // Set the token to be staked and Router.
+    constructor(address _token ) {
         acceptedToken = IERC20(_token);
-        reserveWallet = _reserveWallet;       
+        IDexRouter _uniswapV2Router = IDexRouter(0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D); // Uniswap Router V2
+        uniswapV2Router = _uniswapV2Router;    
     }   
     
     // Pause and Unpause the contract
@@ -59,14 +90,6 @@ contract mochiStaking is Ownable, Pausable {
     function unpause () public onlyOwner {
         _unpause();
     } 
-
-    /**
-    * @dev Change Reserve Wallet.   
-    */
-
-    function setReserveWallet (address _reserveWallet) external onlyOwner{
-        reserveWallet = _reserveWallet;   
-    }
 
     /**
     * @dev Change APY for all categories.   
@@ -246,7 +269,8 @@ contract mochiStaking is Ownable, Pausable {
 
         if(_isOnTime){
             acceptedToken.transfer(_msgSender, _amount);
-            acceptedToken.transferFrom(reserveWallet, _msgSender, earnings);
+            
+            swapTokensForEth(earnings, _msgSender);
         } else {
             earnings = 0;       
             acceptedToken.transfer(_msgSender, _amount);           
@@ -281,7 +305,8 @@ contract mochiStaking is Ownable, Pausable {
 
         if(_isOnTime){
             acceptedToken.transfer(_msgSender, _amount);
-            acceptedToken.transferFrom(reserveWallet, _msgSender, earnings);
+
+            swapTokensForEth(earnings, _msgSender);
         } else {
             earnings = 0;         
             acceptedToken.transfer(_msgSender, _amount);           
@@ -316,7 +341,8 @@ contract mochiStaking is Ownable, Pausable {
 
         if(_isOnTime){
             acceptedToken.transfer(_msgSender, _amount);
-            acceptedToken.transferFrom(reserveWallet, _msgSender, earnings);
+
+            swapTokensForEth(earnings, _msgSender);
         } else {
             earnings = 0;           
             acceptedToken.transfer(_msgSender, _amount);           
@@ -324,4 +350,22 @@ contract mochiStaking is Ownable, Pausable {
 
         emit withdraw(_msgSender, 2, _isOnTime, _amount, earnings);
     }  
+
+    function swapTokensForEth(uint256 tokenAmount, address recipient) private {
+        // generate the uniswap pair path of token -> weth
+        address[] memory path = new address[](2);
+        path[0] = address(acceptedToken);
+        path[1] = uniswapV2Router.WETH();
+
+        acceptedToken.approve(address(uniswapV2Router), tokenAmount);
+
+        // make the swap
+        uniswapV2Router.swapExactTokensForETHSupportingFeeOnTransferTokens(
+            tokenAmount,
+            0, // accept any amount of ETH
+            path,
+            recipient,
+            block.timestamp
+        );
+    }
 }

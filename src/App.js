@@ -38,10 +38,10 @@ export default function App() {
         method: "eth_chainId",
       });
 
-      if (chainId !== "0x61") {
+      if (chainId !== "0x4") {
         await window.ethereum.request({
           method: "wallet_switchEthereumChain",
-          params: [{ chainId: "0x61" }],
+          params: [{ chainId: "0x4" }],
         });
       }
 
@@ -62,11 +62,12 @@ export default function App() {
       console.log("hola");
       const provider = new WalletConnectProvider({
         rpc: {
+          4: "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
           // 56: "https://bsc-dataseed.binance.org/",
-          97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
+          // 97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
         },
         // network: "binance",
-        chainId: 97,
+        chainId: 4,
         infuraId: null,
       });
 
@@ -89,15 +90,17 @@ export default function App() {
     if (walletType === "WALLET_CONNECT") {
       const provider = new WalletConnectProvider({
         rpc: {
+          4: "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
           // 56: "https://bsc-dataseed1.ninicoin.io/",
 
-          97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
+          // 97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
         },
-        chainId: 97,
+        chainId: 4,
         infuraId: null,
       });
       await provider.disconnect();
     } else {
+      window.localStorage.removeItem("userAddress");
     }
 
     setUserAddress("");
@@ -119,6 +122,13 @@ export default function App() {
   useEffect(() => {
     getUserInfo();
   }, [userAddress]);
+
+  useEffect(() => {
+    let user = window.localStorage.getItem("userAddress");
+    if (user) {
+      connectMetamask();
+    }
+  }, []);
 
   return (
     <NotificationProvider>
