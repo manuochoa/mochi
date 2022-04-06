@@ -9,6 +9,15 @@ let tokenAbi = [
   "function balanceOf(address owner) external view returns (uint256)",
   "function allowance(address owner, address spender) external view returns (uint256)",
   "function approve(address spender, uint256 amount) external returns (bool)",
+  {
+    inputs: [],
+    name: "totalSupply",
+    outputs: [
+      { internalType: "uint256", name: "_totalSupply", type: "uint256" },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
 ];
 
 let provider = new ethers.providers.JsonRpcProvider(
@@ -139,6 +148,16 @@ export const checkAllowance = async (userAddress) => {
 export const tokenBalance = async (userAddress) => {
   try {
     let receipt = await tokenInstance.balanceOf(userAddress);
+
+    return receipt;
+  } catch (error) {
+    console.log(error, "tokenBalance");
+  }
+};
+
+export const getTotalSupply = async () => {
+  try {
+    let receipt = await tokenInstance.totalSupply();
 
     return receipt;
   } catch (error) {

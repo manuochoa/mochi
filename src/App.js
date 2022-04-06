@@ -10,6 +10,7 @@ import {
   tokenBalance,
   checkAllowance,
   getDepositData,
+  getTotalSupply,
 } from "./blockchain/functions";
 
 export default function App() {
@@ -17,7 +18,7 @@ export default function App() {
   const [userAddress, setUserAddress] = useState("");
   const [walletType, setWalletType] = useState("");
   const [walletProvider, setWalletProvider] = useState();
-  const [totalStaked, setTotalStaked] = useState("");
+  const [totalStaked = { totalStaked }, setTotalStaked] = useState(0);
   const [userInfo, setUserInfo] = useState({
     balance: "",
     isAllowed: false,
@@ -124,7 +125,9 @@ export default function App() {
     let result = await tokenBalance(
       "0xBa9Cec669E12DeFA8741a3964F1EDaF30E8065b0"
     );
-    setTotalStaked(result);
+    let totalSupply = await getTotalSupply();
+    console.log(result, "contract balance");
+    setTotalStaked((result * 100) / totalSupply);
   };
 
   useEffect(() => {
@@ -147,7 +150,7 @@ export default function App() {
         setPopupVisible={setPopupVisible}
       />
       <main className="main container">
-        <Panel userInfo={userInfo} />
+        <Panel grandTotal={totalStaked} userInfo={userInfo} />
         <Proposals
           getTotalStaked={getTotalStaked}
           userAddress={userAddress}
