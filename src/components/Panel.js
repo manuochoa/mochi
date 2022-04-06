@@ -2,7 +2,7 @@ import useSmallScreen from "./../hooks/useSmallScreen";
 import { useState, useEffect } from "react";
 import { stake } from "../blockchain/functions";
 
-export default function Panel({ grandTotal, userInfo }) {
+export default function Panel({ grandTotal, userInfo, currentValue }) {
   const mobileScreen = useSmallScreen(768);
   const smallScreen = useSmallScreen(480);
   const [totalStaked, setTotalStaked] = useState(0);
@@ -27,16 +27,17 @@ export default function Panel({ grandTotal, userInfo }) {
       {mobileScreen ? (
         <ul className="panel__list">
           <li className="panel__item">
-            <h6 className="panel__title">Balance</h6>M
+            <h6 className="panel__title">Balance</h6>
             <h1 className="panel__value">
               {Number(userInfo.balance / 10 ** 18).toString()}{" "}
-              {!smallScreen && "$MOCHI"}
+              {smallScreen && "$MOCHI"}
             </h1>
           </li>
           <li className="panel__item">
             <h6 className="panel__title">My Earnings</h6>
             <h1 className="panel__value">
-              {totalEarned.toFixed(2)} {!smallScreen && "$MOCHI"}
+              {(totalEarned * currentValue).toFixed(8)} ETH
+              {!smallScreen && "$MOCHI"}
             </h1>
           </li>
           <li className="panel__item">
@@ -63,7 +64,9 @@ export default function Panel({ grandTotal, userInfo }) {
             </li>
             <li className="panel__item">
               <h6 className="panel__title">My Earnings</h6>
-              <h1 className="panel__value">{totalEarned.toFixed(2)} $MOCHI</h1>
+              <h1 className="panel__value">
+                {(totalEarned * currentValue).toFixed(8)} ETH
+              </h1>
             </li>
             <li className="panel__item">
               <h6 className="panel__title">My Staked Tokens</h6>

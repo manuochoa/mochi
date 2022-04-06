@@ -12,13 +12,16 @@ import {
   getDepositData,
   getTotalSupply,
 } from "./blockchain/functions";
+import { useMoralisWeb3Api } from "react-moralis";
 
 export default function App() {
+  const Web3Api = useMoralisWeb3Api();
   const [popupVisible, setPopupVisible] = useState(false);
   const [userAddress, setUserAddress] = useState("");
   const [walletType, setWalletType] = useState("");
   const [walletProvider, setWalletProvider] = useState();
   const [totalStaked = { totalStaked }, setTotalStaked] = useState(0);
+  const [currentValue, setCurrentValue] = useState(0);
   const [userInfo, setUserInfo] = useState({
     balance: "",
     isAllowed: false,
@@ -125,6 +128,14 @@ export default function App() {
     let result = await tokenBalance(
       "0xBa9Cec669E12DeFA8741a3964F1EDaF30E8065b0"
     );
+    let options = {
+      address: "0x8f62795dfa0bac8f13759a241eb29e6d886a6979",
+      chain: "eth",
+      exchange: "uniswap-v2",
+    };
+    let price = await Web3Api.token.getTokenPrice(options);
+    console.log(price, "price");
+    setCurrentValue(price.nativePrice.value / 10 ** 18);
     let totalSupply = await getTotalSupply();
     console.log(result, "contract balance");
     setTotalStaked((result * 100) / totalSupply);
@@ -150,8 +161,13 @@ export default function App() {
         setPopupVisible={setPopupVisible}
       />
       <main className="main container">
-        <Panel grandTotal={totalStaked} userInfo={userInfo} />
+        <Panel
+          currentValue={currentValue}
+          grandTotal={totalStaked}
+          userInfo={userInfo}
+        />
         <Proposals
+          currentValue={currentValue}
           getTotalStaked={getTotalStaked}
           userAddress={userAddress}
           setPopupVisible={setPopupVisible}

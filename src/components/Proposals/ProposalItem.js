@@ -14,6 +14,7 @@ export default function ProposalItem({
   userAddress,
   setPopupVisible,
   getTotalStaked,
+  currentValue,
 }) {
   const [state, setState] = useState({
     balance: "",
@@ -148,7 +149,7 @@ export default function ProposalItem({
         </li>
         <li className="card__item">
           <span>Earnings</span>
-          <span>{item.earnings}</span>
+          <span>{(item.earnings * currentValue).toFixed(8)} ETH</span>
         </li>
       </ul>
       {item.staked > 0 ? (
